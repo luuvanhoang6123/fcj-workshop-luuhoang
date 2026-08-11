@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-06-22
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 1:
+**22/06/2026 – 26/06/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Nắm quy trình, nội quy và lịch làm việc tại công ty.
+- Làm quen các thành viên FCJ và phân công vai trò sơ bộ trong nhóm.
+- Tự xây dựng nền tảng hiểu biết về AWS trước khi bước vào đồ án.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 1:
+| Thứ | Ngày | Hình thức | Nội dung |
+| --- | --- | --- | --- |
+| Thứ Hai | 22/06/2026 | Tại công ty | Tham gia buổi giới thiệu FCJ; ghi chú quy trình báo cáo, check-in tuần và cách trao đổi với mentor. |
+| Thứ Ba | 23/06/2026 | Tự học | Đọc tài liệu AWS Overview; tóm tắt mô hình pay-as-you-go và lợi ích so với on-premise. |
+| Thứ Tư | 24/06/2026 | Tự học | Học khái niệm Region, Availability Zone, Edge Location; vẽ sơ đồ phân tán để tự kiểm tra hiểu bài. |
+| Thứ Năm | 25/06/2026 | Tự học | Liệt kê và so sánh nhóm Compute, Storage, Database, Networking; ghi chú dịch vụ có thể dùng cho đồ án sau này. |
+| Thứ Sáu | 26/06/2026 | Tại công ty | Trình bày phần tóm tắt đã học; thống nhất kênh liên lạc nhóm (chat, repo, lịch họp ngắn cuối tuần). |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả và ghi chú
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Em đã nắm được khung thời gian 8 tuần và yêu cầu nộp Worklog, báo cáo cuối kỳ.
+- Hiểu sơ lược AWS Shared Responsibility Model và cách phân loại dịch vụ theo chức năng.
+- Bắt đầu quen thói ghi chép theo ngày thay vì chỉ tổng hợp cuối tuần.
+- **Hạn chế:** Kiến thức mới chủ yếu lý thuyết; tuần 2 cần chuyển sang thực hành Console sớm hơn.

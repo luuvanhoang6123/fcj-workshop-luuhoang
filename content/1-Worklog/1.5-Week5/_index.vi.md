@@ -1,59 +1,35 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 5:
+**20/07/2026 – 24/07/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Phát triển backend serverless: Lambda handlers và schema DynamoDB.
+- Triển khai logic đặt giá, lưu lịch sử bid và validate dữ liệu đầu vào.
+- Phối hợp tích hợp API với frontend do thành viên khác xây dựng.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 5:
+| Thứ | Ngày | Nội dung | Tài liệu |
+| --- | --- | --- | --- |
+| Thứ Hai | 20/07/2026 | Thống nhất cấu trúc repo (`Infrastructure/`, `backend/`, `frontend/`); em nhận module auction và bid. | Tài liệu nhóm |
+| Thứ Ba | 21/07/2026 | Thiết kế bảng DynamoDB: Users, Categories, Sessions, Items, Bids; chọn partition/sort key phù hợp truy vấn. | [DynamoDB Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) |
+| Thứ Tư | 22/07/2026 | Viết Lambda REST cho CRUD phiên đấu giá và vật phẩm; thêm validation giá khởi điểm, thời gian kết thúc. | [FastAPI Tutorial](https://fastapi.tiangolo.com/tutorial/) |
+| Thứ Năm | 23/07/2026 | Implement handler nhận bid, đẩy message vào SQS FIFO; draft consumer Lambda cập nhật giá cao nhất. | Mã nguồn nhóm |
+| Thứ Sáu | 24/07/2026 | Test Postman với frontend staging; sửa lỗi format response; liệt kê API còn thiếu cho tuần 6. | Tài liệu test nội bộ |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả và ghi chú
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hoàn thành skeleton Lambda cho quản lý phiên, vật phẩm và tiếp nhận bid.
+- Schema DynamoDB hỗ trợ truy vấn theo `sessionId` và lịch sử bid theo thời gian.
+- Luồng bid local chạy end-to-end trước khi deploy AWS (mock queue).
+- **Khó khăn:** Xử lý điều kiện bid phải cao hơn giá hiện tại — em dùng conditional write DynamoDB để tránh ghi đè sai.
+- **Phối hợp nhóm:** Thành viên frontend tích hợp API list/detail; em hỗ trợ fix CORS sơ bộ trên API Gateway mock.

@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-07-13
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 4:
+**13/07/2026 – 17/07/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Tham gia chọn đề tài và phân tích yêu cầu nghiệp vụ đấu giá.
+- Đề xuất giải pháp xử lý bid đồng thời và cập nhật giá theo thời gian thực.
+- Soạn phần kiến trúc và lộ trình triển khai trong bản Proposal.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 4:
+| Thứ | Ngày | Nội dung | Ghi chú |
+| --- | --- | --- | --- |
+| Thứ Hai | 13/07/2026 | Thảo luận nhóm, thống nhất đề tài **Live Auction Platform on AWS**; em phụ trách tóm tắt phạm vi MVP. | Meeting nhóm |
+| Thứ Ba | 14/07/2026 | Vẽ use case cho User/Admin: đăng ký, tạo phiên, thêm vật phẩm, đặt giá, duyệt phiên. | Tài liệu nội bộ |
+| Thứ Tư | 15/07/2026 | Phân tích pain point: race condition khi nhiều người bid; đề xuất SQS FIFO + WebSocket push. | [AWS Architecture](https://aws.amazon.com/architecture/) |
+| Thứ Năm | 16/07/2026 | Nghiên cứu Well-Architected; ánh xạ Cognito, API Gateway, Lambda, DynamoDB, S3, CloudFront vào sơ đồ. | [Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| Thứ Sáu | 17/07/2026 | Hoàn thiện sơ đồ kiến trúc; đề xuất Terraform cho IaC; em soạn mục "Luồng đặt giá" trong Proposal. | [Terraform AWS](https://developer.hashicorp.com/terraform/tutorials/aws-get-started) |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả và ghi chú
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Em hoàn thành phần mô tả luồng đấu giá: client gửi bid → API Gateway → SQS FIFO → Lambda xử lý → DynamoDB cập nhật → WebSocket broadcast.
+- Xác định hai frontend (User/Admin) và vai trò Cognito phân quyền.
+- Proposal được mentor góp ý: cần làm rõ cơ chế timeout phiên đấu giá — em ghi vào backlog tuần 5.
+- **Vai trò cá nhân tuần này:** Phân tích nghiệp vụ + kiến trúc luồng real-time (không trùng với phần frontend do thành viên khác phụ trách).

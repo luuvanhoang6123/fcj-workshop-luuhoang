@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-08-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 8:
+**08/08/2026 – 10/08/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Hoàn thiện nội dung Workshop và Worklog cá nhân.
+- Dọn dẹp tài nguyên AWS (`terraform destroy`) theo quy trình nhóm.
+- Nộp sản phẩm, báo cáo thực tập và hoàn tất thủ tục kết thúc kỳ.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 8:
+| Ngày | Nội dung |
+| --- | --- |
+| 08/08/2026 | Rà soát lại mục 5.3 và 5.5 Workshop; bổ sung ảnh minh họa, sửa lỗi chính tả và link nội bộ. |
+| 09/08/2026 | Chạy test upload ảnh S3 + truy cập qua CloudFront; ghi kết quả vào mục 5.5.7. Chạy `terraform destroy`, xác nhận bucket trống trước khi xóa. |
+| 10/08/2026 | Nộp repo, Worklog, báo cáo thực tập; tham gia buổi bàn giao sản phẩm; nhận xác nhận và hoàn tất thủ tục FCJ. |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả và ghi chú
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Đồ án **Live Auction Platform on AWS** được bàn giao đủ frontend, backend serverless và tài liệu Workshop.
+- Em hoàn thành Worklog 8 tuần phản ánh đúng phần việc cá nhân (backend, Terraform, testing, tài liệu).
+- Tài nguyên AWS đã được dọn sạch; không phát sinh chi phí sau khi destroy.
+- **Tổng kết cá nhân:** Em tự tin triển khai serverless trên AWS, viết IaC cơ bản bằng Terraform và kiểm thử luồng real-time. Hướng cải thiện: CI/CD tự động và load test quy mô lớn hơn.

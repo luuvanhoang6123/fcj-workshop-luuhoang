@@ -1,57 +1,35 @@
 ---
-title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 6"
+date: 2026-07-27
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Duration
 
-### Week 6 Objectives:
+**July 27, 2026 – July 31, 2026**
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Personal objectives
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Deploy AWS infrastructure with Terraform (my primary responsibility).
+- Provision serverless services and capture endpoint outputs for integration.
+- Write Workshop section 5.3 (Infrastructure) with real commands and screenshots.
 
+### Activities completed
 
-### Week 6 Achievements:
+| Day | Date | Work | Reference |
+| --- | --- | --- | --- |
+| Monday | 27/07/2026 | Installed Terraform 1.x; verified `terraform -version`; configured team AWS profile. | [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) |
+| Tuesday | 28/07/2026 | Created `Infrastructure/modules/` layout; declared provider, variables, locals; split IAM and Cognito modules. | [Terraform Language](https://developer.hashicorp.com/terraform/language) |
+| Wednesday | 29/07/2026 | Ran `terraform init`, `validate`, `plan`; fixed duplicate resource names and Lambda–IAM dependency gaps. | [terraform init](https://developer.hashicorp.com/terraform/cli/commands/init) |
+| Thursday | 30/07/2026 | `terraform apply` deployed S3, CloudFront, DynamoDB, SQS FIFO, API Gateway, Lambda; verified on Console. | [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply) |
+| Friday | 31/07/2026 | Set Lambda env vars; deployed frontend to S3; drafted Workshop 5.3.1–5.3.5 from deployment logs. | Source & deploy logs |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Results and notes
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Core infrastructure provisioned via Terraform; outputs included REST URL, WebSocket URL, CloudFront domain.
+- I drafted Infrastructure Workshop docs (init → plan → apply).
+- Fixed missing `sqs:SendMessage` permission on bid producer Lambda IAM policy.
+- **Challenge:** CloudFront cache invalidation after frontend upload — added this step to deploy guide.
+- **Team coordination:** Teammate integrated Cognito UI; I provided endpoints and env var mapping table.

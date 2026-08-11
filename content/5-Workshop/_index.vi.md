@@ -6,28 +6,28 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Xây dựng và triển khai hệ thống Live Auction trên nền tảng AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+**Live Auction** là nền tảng đấu giá trực tuyến cho phép người dùng đăng ký tài khoản, theo dõi các phiên đấu giá và thực hiện đặt giá theo thời gian thực.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Hệ thống cung cấp hai giao diện riêng biệt dành cho người dùng và quản trị viên. Người dùng có thể quản lý thông tin cá nhân, tạo phiên đấu giá, thêm một hoặc nhiều vật phẩm, theo dõi phiên và tham gia đặt giá. Quản trị viên có thể quản lý tài khoản người dùng, quản lý danh mục sản phẩm, duyệt phiên đấu giá và tạo thêm tài khoản quản trị viên.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Trong Workshop này, nhóm trình bày quá trình xây dựng và triển khai hệ thống **Live Auction** trên nền tảng **Amazon Web Services (AWS)**. Hạ tầng được triển khai bằng **Terraform**, giúp tự động hóa việc tạo và quản lý tài nguyên AWS, đồng thời bảo đảm tính nhất quán giữa các lần triển khai.
+
+User Frontend và Admin Frontend được lưu trữ riêng biệt trên **Amazon S3** và phân phối thông qua **Amazon CloudFront**. Chức năng xác thực và phân quyền tài khoản sử dụng **Amazon Cognito** kết hợp với **AWS IAM**. Các API nghiệp vụ được triển khai bằng **AWS Lambda** và **Amazon API Gateway**.
+
+Đối với chức năng đấu giá theo thời gian thực, hệ thống sử dụng **API Gateway WebSocket**, **Amazon SQS FIFO** và **Amazon DynamoDB** để tiếp nhận yêu cầu đặt giá, xử lý thông điệp theo đúng thứ tự, lưu trạng thái đấu giá và gửi dữ liệu cập nhật đến những người dùng đang kết nối.
+
+Workshop tập trung vào quá trình chuẩn bị môi trường, triển khai hạ tầng bằng Terraform, kiểm tra các dịch vụ AWS, kiểm thử hệ thống, hướng dẫn dọn dẹp tài nguyên và tổng kết kết quả đạt được.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
+1. [Giới thiệu đồ án và kiến trúc triển khai](5.1-Workshop-overview/)
+2. [Chuẩn bị môi trường](5.2-Preparation/)
+3. [Triển khai hạ tầng bằng Terraform](5.3-Infrastructure/)
+4. [Các dịch vụ AWS được triển khai](5.4-AWS-Services/)
+5. [Kiểm thử hệ thống](5.5-Testing/)
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+7. [Kết quả đạt được](5.7-Results/)

@@ -1,59 +1,36 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+date: 2026-08-03
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 7:
+**03/08/2026 – 07/08/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Lập và thực thi test case cho luồng đấu giá thời gian thực (phần em phụ trách).
+- Kiểm tra tích hợp WebSocket, SQS FIFO và DynamoDB trên môi trường AWS thật.
+- Khắc phục lỗi phát sinh; rà soát IAM và cấu hình Terraform trước tổng duyệt.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 7:
+| Thứ | Ngày | Nội dung | Tài liệu |
+| --- | --- | --- | --- |
+| Thứ Hai | 03/08/2026 | Soạn ma trận test: auth, CRUD phiên, bid hợp lệ/không hợp lệ, reconnect WebSocket. | Tài liệu test nhóm |
+| Thứ Ba | 04/08/2026 | Test Cognito: đăng ký, xác nhận email, login User vs Admin; kiểm tra token trên request API. | [Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools.html) |
+| Thứ Tư | 05/08/2026 | Test REST Lambda trên AWS: tạo phiên, thêm item, gửi bid; đối chiếu dữ liệu DynamoDB. | [Lambda Testing](https://docs.aws.amazon.com/lambda/latest/dg/testing-guide.html) |
+| Thứ Năm | 06/08/2026 | Mô phỏng 3 client bid liên tiếp; xác minh thứ tự SQS FIFO và broadcast qua WebSocket. | [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html) |
+| Thứ Sáu | 07/08/2026 | Fix CORS, env var sai tên bảng DynamoDB; chạy lại `terraform plan` sau chỉnh IAM; demo end-to-end cho nhóm. | Mã nguồn & Terraform |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả và ghi chú
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- **Pass:** Luồng đăng nhập → tham gia phiên → đặt giá → cập nhật UI real-time hoạt động ổn định với 2–3 client.
+- **Pass:** Bid thấp hơn giá hiện tại bị từ chối; lịch sử bid hiển thị đúng thứ tự thời gian.
+- **Đã sửa:** CORS thiếu header `Authorization`; Lambda consumer đọc sai tên biến `BIDS_TABLE`.
+- **Đã sửa:** WebSocket disconnect không xóa connection ID — thêm cleanup trong handler `$disconnect`.
+- Em hoàn thành phần nháp Workshop mục 5.5 (Testing) cho các scenario em đã test trực tiếp.
+- **Còn lại cho tuần 8:** Kiểm thử upload ảnh S3/CloudFront và viết báo cáo tổng kết cá nhân.

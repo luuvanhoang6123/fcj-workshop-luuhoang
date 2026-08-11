@@ -5,27 +5,29 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Building and Deploying the Live Auction System on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**Live Auction** is an online auction platform that allows users to register accounts, follow auction sessions, and submit bids in real time.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The system provides two separate interfaces for users and administrators. Users can manage their personal information, create auction sessions, add one or more items, follow auctions, and submit bids. Administrators can manage user accounts, manage product categories, approve auction sessions, and create additional administrator accounts.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+In this Workshop, the team presents the process of building and deploying the **Live Auction** system on **Amazon Web Services (AWS)**. The infrastructure is deployed using **Terraform**, which automates the creation and management of AWS resources while ensuring consistency across deployments.
 
-#### Content
+The User Frontend and Admin Frontend are stored separately in **Amazon S3** and distributed through **Amazon CloudFront**. Account authentication and authorization are implemented using **Amazon Cognito** together with **AWS IAM**. Business APIs are implemented using **AWS Lambda** and **Amazon API Gateway**.
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+For real-time auction functionality, the system uses **API Gateway WebSocket**, **Amazon SQS FIFO**, and **Amazon DynamoDB** to receive bid requests, process messages in the correct order, store auction states, and deliver updates to connected users.
+
+The Workshop covers environment preparation, infrastructure deployment with Terraform, AWS service verification, system testing, resource cleanup guidance, and a summary of the achieved results.
+
+#### Contents
+
+1. [Project Introduction and Deployment Architecture](5.1-Workshop-overview/)
+2. [Environment Preparation](5.2-Preparation/)
+3. [Infrastructure Deployment with Terraform](5.3-Infrastructure/)
+4. [Deployed AWS Services](5.4-AWS-Services/)
+5. [System Testing](5.5-Testing/)
+6. [Resource Cleanup](5.6-Cleanup/)
+7. [Results](5.7-Results/)

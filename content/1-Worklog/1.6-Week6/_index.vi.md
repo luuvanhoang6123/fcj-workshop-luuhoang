@@ -1,58 +1,35 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-27
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Thời gian
 
-### Mục tiêu tuần 6:
+**27/07/2026 – 31/07/2026**
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu cá nhân
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Triển khai hạ tầng AWS bằng Terraform (phần em phụ trách chính).
+- Deploy các dịch vụ serverless và lấy output endpoint phục vụ tích hợp.
+- Viết tài liệu Workshop mục 5.3 (Infrastructure) kèm screenshot và lệnh thực tế.
 
+### Công việc đã thực hiện
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+| Thứ | Ngày | Nội dung | Tài liệu |
+| --- | --- | --- | --- |
+| Thứ Hai | 27/07/2026 | Cài Terraform 1.x, kiểm tra `terraform -version`; cấu hình AWS profile cho tài khoản nhóm. | [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) |
+| Thứ Ba | 28/07/2026 | Tạo cấu trúc `Infrastructure/modules/`; khai báo provider, variables, locals; tách module IAM và Cognito. | [Terraform Language](https://developer.hashicorp.com/terraform/language) |
+| Thứ Tư | 29/07/2026 | Chạy `terraform init`, `validate`, `plan`; sửa lỗi trùng tên resource và thiếu dependency giữa Lambda–IAM Role. | [terraform init](https://developer.hashicorp.com/terraform/cli/commands/init) |
+| Thứ Năm | 30/07/2026 | `terraform apply` deploy S3, CloudFront, DynamoDB, SQS FIFO, API Gateway, Lambda; kiểm tra trên Console. | [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply) |
+| Thứ Sáu | 31/07/2026 | Gắn biến môi trường Lambda; deploy frontend lên S3; soạn draft Workshop 5.3.1–5.3.5 từ log triển khai thực tế. | Mã nguồn & log deploy |
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả và ghi chú
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hạ tầng chính được provision bằng Terraform; output gồm REST URL, WebSocket URL, CloudFront domain.
+- Em hoàn thành bản nháp tài liệu Infrastructure cho Workshop (init → plan → apply).
+- Phát hiện và sửa lỗi IAM policy thiếu quyền `sqs:SendMessage` cho Lambda bid producer.
+- **Khó khăn:** CloudFront invalidate cache sau khi upload frontend — em ghi thêm bước này vào hướng dẫn deploy.
+- **Phối hợp nhóm:** Thành viên khác tích hợp Cognito UI; em cung cấp endpoint và bảng mapping biến môi trường.
