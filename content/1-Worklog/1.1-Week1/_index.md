@@ -18,13 +18,13 @@ pre: " <b> 1.1. </b> "
 
 ### Activities completed
 
-| Day | Date | Format | Work |
+| Day | Date| Work |
 | --- | --- | --- | --- |
-| Monday | 22/06/2026 | On-site | Attended FCJ onboarding; noted reporting flow, weekly check-ins, and mentor communication. |
-| Tuesday | 23/06/2026 | Self-study | Read AWS Overview docs; summarized pay-as-you-go and benefits vs. on-premises. |
-| Wednesday | 24/06/2026 | Self-study | Studied Region, Availability Zone, and Edge Location; drew a diagram to self-check understanding. |
-| Thursday | 25/06/2026 | Self-study | Compared Compute, Storage, Database, and Networking groups; noted services potentially useful for the project. |
-| Friday | 26/06/2026 | On-site | Presented my weekly summary; aligned on team channels (chat, repo, short Friday sync). |
+| Monday | 22/06/2026| Attended FCJ onboarding; noted reporting flow, weekly check-ins, and mentor communication. |
+| Tuesday | 23/06/2026| Read AWS Overview docs; summarized pay-as-you-go and benefits vs. on-premises. |
+| Wednesday | 24/06/2026| Studied Region, Availability Zone, and Edge Location; drew a diagram to self-check understanding. |
+| Thursday | 25/06/2026| Compared Compute, Storage, Database, and Networking groups; noted services potentially useful for the project. |
+| Friday | 26/06/2026| Presented my weekly summary; aligned on team channels (chat, repo, short Friday sync). |
 
 ### Results and notes
 
