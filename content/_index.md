@@ -28,7 +28,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 12/06/2026 to 15/08/2026
 
-![Your profile picture](/images/avatar.jpg)
+![lưu hoàng profile](./images/avatar.jpg)
 
 ### Report Content
 
